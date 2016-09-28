@@ -1,7 +1,6 @@
 package com.dsc.testmvp.presenter;
 
 import android.os.Handler;
-import android.support.annotation.UiThread;
 import android.util.Log;
 
 import com.dsc.testmvp.bean.User;
@@ -12,8 +11,9 @@ import com.dsc.testmvp.ui.IView;
 
 /**
  * Created by staff on 2016/9/5.
+ * 完成View于Model间的交互
  */
-public class LoginPresenter implements IPresenter {
+public class LoginPresenter implements ILoginPresenter {
     private final static String TAG = "LoginPresenter";
     private IView mView;
     private IUserModel userModel;

@@ -2,52 +2,36 @@ package com.dsc.testmvp.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.amap.api.location.AMapLocation;
-import com.amap.api.location.AMapLocationClient;
-import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationListener;
 import com.dsc.testmvp.R;
 import com.dsc.testmvp.bean.User;
-import com.dsc.testmvp.presenter.IPresenter;
+import com.dsc.testmvp.presenter.ILoginPresenter;
 import com.dsc.testmvp.presenter.LoginPresenter;
 import com.dsc.testmvp.util.LocationUtil;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.util.Hashtable;
 
 public class MainActivity extends AppCompatActivity implements IView {
     private final static String TAG = "MainActivity";
     private EditText editUserName,editUserPsw;
     private Button btnLogin,btnClear;
     private ProgressBar pb;
-    private IPresenter mPresenter;
+    private ILoginPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        LocationUtil.startLocation(this);
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LocationUtil.stopLocation();
     }
 
     private void init() {

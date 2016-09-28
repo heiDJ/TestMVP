@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by staff on 2016/9/5.
+ * 业务逻辑层
  */
 public class UserModel implements IUserModel {
     @Override public void login(final String userName, final String usePsw, final OnLoginListener onLoginListener) {
